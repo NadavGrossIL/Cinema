@@ -1,0 +1,16 @@
+<!-- Modal -->
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Delete Movie</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>{{currentMovie.Title}} will be deleted. </p>
+  <p>Please press ok to proceed. </p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+  <button type="button" class="btn btn-danger" ngbAutofocus (click)="activeModal.close('Ok click')">Ok</button>
+</div>
+<!-- End Modal -->

@@ -1,0 +1,18 @@
+div{
+  color: black;
+}
+
+a{
+  cursor: pointer;
+}
+
+.card-header{
+ background-color: #c94c4c;
+ color: white;  
+}
+.fa-star{
+  color: #f2b01e;
+  text-shadow: 1px 1px 5px black;
+}
+
+

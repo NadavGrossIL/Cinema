@@ -1,0 +1,24 @@
+<div class="card">
+  <h5 class="card-header">
+    <i class="fas fa-film"></i>
+    {{movie.Title | titlecase | onlyEnglish}} ({{movie.Year}})
+    <i class="fas fa-star float-right"></i>
+    <i class="fas fa-star float-right"></i>
+    <i class="fas fa-star float-right"></i>
+    <i class="fas fa-star float-right"></i>
+    <i class="fas fa-star float-right"></i>
+  </h5>
+
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">{{movie.Runtime}}</h6>
+    <p class="card-text">Genre: {{movie.Genre}}</p>
+    <p class="card-text">Director: {{movie.Director}}</p>
+  </div>
+  <div class="card-footer text-right">
+    <a (click)="editMovie()"><i class="fas fa-edit"></i></a>&nbsp;
+    <a (click)="deleteMovie()"><i class="fas fa-trash-alt"></i></a>
+  </div>
+</div>
+<br />
+<app-edit-modal #editModal [currentMovie]="movie" [editMode]="true"></app-edit-modal>
+<app-delete-modal #deleteModal [currentMovie]="movie"></app-delete-modal>

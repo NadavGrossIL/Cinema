@@ -1,0 +1,49 @@
+<!-- Modal -->
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{editMode ? "Edit" : "Add"}} Movie</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+        <div *ngIf="editMode">
+            <p>IMDB Id: {{currentMovie.imdbID}}</p>
+            <hr>
+        </div>
+        <small>Title</small>
+        <input type="text" id="title" formControlName="title" class="form-control">
+        <br />
+        <ngb-alert [dismissible]="false" *ngIf="titleControl.errors?.required && (titleControl.dirty || titleControl.touched)">
+            Please insert title.
+        </ngb-alert>
+        <ngb-alert [dismissible]="false" *ngIf="titleControl.hasError('invalidTitle')">
+            This title is already exists. Please enter a different title.
+        </ngb-alert>
+        <small>Year</small>
+        <input type="text" id="year" formControlName="year" class="form-control"><br />
+        <ngb-alert [dismissible]="false" *ngIf="yearControl.invalid && (yearControl.dirty || yearControl.touched)">
+            Please insert valid year (1900-2019).
+        </ngb-alert>
+        <small>Runtime</small>
+        <input type="text" id="runtime" formControlName="runtime" class="form-control"><br />
+        <ngb-alert [dismissible]="false" *ngIf="runtimeControl.invalid && (runtimeControl.dirty || runtimeControl.touched)">
+            Please insert runtime.
+        </ngb-alert>
+        <small>Genre</small>
+        <input type="text" id="genre" formControlName="genre" class="form-control"><br />
+        <ngb-alert [dismissible]="false" *ngIf="genreControl.invalid && (genreControl.dirty || genreControl.touched)">
+            Please insert genre.
+        </ngb-alert>
+        <small>Director</small>
+        <input type="text" id="director" formControlName="director" class="form-control"><br />
+        <ngb-alert [dismissible]="false" *ngIf="directorControl.invalid && (directorControl.dirty || directorControl.touched)">
+            Please insert director.
+        </ngb-alert>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+        <button type="submit" class="btn btn-success" ngbAutofocus [disabled]="!editForm.valid">Save</button>
+    </div>
+</form>
+<!-- End Modal -->

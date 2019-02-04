@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <span class="navbar-brand mb-0 h1">
+    <i class="fas fa-video"></i>
+    &nbsp;Herolo Cinema</span>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" (click)="addMovie()"><i class="fas fa-plus-circle"></i>
+      Add New Movie</a>
+    </li>
+    </ul>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <section>
+        <main>
+          <br />
+          <!-- <button class="btn btn-light" (click)="addMovie()">
+            <i class="fas fa-plus-circle"></i>
+            Add New Movie</button> -->
+          <app-movies [movies]="movies"></app-movies>
+        </main>
+        <app-edit-modal #addModal [editMode]="false"></app-edit-modal>
+      </section>
+    </div>
+  </div>
+</div>
